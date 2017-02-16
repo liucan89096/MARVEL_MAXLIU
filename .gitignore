@@ -1,0 +1,6 @@
+.idea
+node_modules
+npm-debug.*
+#app/**/*.js
+#app/*.js
+#*.js.map
