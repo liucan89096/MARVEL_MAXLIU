@@ -1,5 +1,4 @@
 # MARVEL's Comics info Source
-[![Build Status][travis-badge]][travis-badge-url]
 
 This repository holds the source code of Max LIU's answer for Premonition_IO's test. The whole project is built with angular2 and bootstrap framework.
 
