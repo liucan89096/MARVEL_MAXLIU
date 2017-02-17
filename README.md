@@ -4,7 +4,7 @@ This repository holds the source code of Max LIU's answer for Premonition_IO's t
 
 This is an interface that can display the comics' information by fetching data from MARVEL's API (http://developer.marvel.com).
 
-It includes - Search - Sorting - Pagination - Thumbnails features.
+It includes - Search - Sorting - Pagination - Thumbnails features and it is fully responsive.
 
 Any suggestions are welcomed!
 
