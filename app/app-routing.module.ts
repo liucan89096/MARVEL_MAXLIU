@@ -1,16 +1,20 @@
 /**
- * Created by 70243 on 2016/12/22.
+ * @Author: Max LIU
+ * @Date: 2017/2/16
+ * @Last_Modified_by: Max LIU
+ * @Last_Modified_time: 2017/2/16
+ * @Description: The module of routing
  */
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {HeroDetailComponent} from './hero-detail/hero-detail.component';
+import {ComicsComponent} from './comics/comics.component';
+import {SearchComponent} from './search/search.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/orderBy/title/1', pathMatch: 'full'},
-  {path: 'orderBy/:orderBy/:currentPage', component: DashboardComponent},
-  {path: 'detail/:id', component: HeroDetailComponent}
+  {path: '', redirectTo: '/comics/orderBy/title/1', pathMatch: 'full'},
+  {path: 'comics/orderBy/:orderBy/:currentPage', component: ComicsComponent},
+  {path: 'search/:category/:keyword/:currentPage', component: SearchComponent}
 ];
 
 @NgModule({

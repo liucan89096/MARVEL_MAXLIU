@@ -1,19 +1,26 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+/**
+ * @Author: Max LIU
+ * @Date: 2017/2/16
+ * @Last_Modified_by: Max LIU
+ * @Last_Modified_time: 2017/2/16
+ * @Description: The module of app
+ */
+import {NgModule}      from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppRoutingModule} from './app-routing.module';
 
-import { AppComponent }  from './app.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {HeroDetailComponent} from './hero-detail/hero-detail.component';
+import {AppComponent}  from './app.component';
+import {ComicsComponent} from './comics/comics.component';
+import {SearchComponent} from './search/search.component';
 
 import {ComicsService} from './comics.service';
 
 
 @NgModule({
-  imports:      [
+  imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -21,10 +28,11 @@ import {ComicsService} from './comics.service';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
-    HeroDetailComponent
+    ComicsComponent,
+    SearchComponent
   ],
   providers: [ComicsService],
-  bootstrap:    [ AppComponent ]
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

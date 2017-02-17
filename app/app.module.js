@@ -8,14 +8,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * @Author: Max LIU
+ * @Date: 2017/2/16
+ * @Last_Modified_by: Max LIU
+ * @Last_Modified_time: 2017/2/16
+ * @Description: The module of app
+ */
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var app_routing_module_1 = require("./app-routing.module");
 var app_component_1 = require("./app.component");
-var dashboard_component_1 = require("./dashboard/dashboard.component");
-var hero_detail_component_1 = require("./hero-detail/hero-detail.component");
+var comics_component_1 = require("./comics/comics.component");
+var search_component_1 = require("./search/search.component");
 var comics_service_1 = require("./comics.service");
 var AppModule = (function () {
     function AppModule() {
@@ -32,8 +39,8 @@ AppModule = __decorate([
         ],
         declarations: [
             app_component_1.AppComponent,
-            dashboard_component_1.DashboardComponent,
-            hero_detail_component_1.HeroDetailComponent
+            comics_component_1.ComicsComponent,
+            search_component_1.SearchComponent
         ],
         providers: [comics_service_1.ComicsService],
         bootstrap: [app_component_1.AppComponent]

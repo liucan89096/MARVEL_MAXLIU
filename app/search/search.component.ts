@@ -1,25 +1,32 @@
 /**
- * Created by 70243 on 2016/12/22.
+ * @Author: Max LIU
+ * @Date: 2017/2/16
+ * @Last_Modified_by: Max LIU
+ * @Last_Modified_time: 2017/2/16
+ * @Description: The component of Search
  */
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 
-// import {Hero} from '../hero';
 import {Comic} from '../comic'
 
 import {ComicsService} from '../comics.service';
 
+import 'rxjs/add/operator/switchMap';
+
 @Component({
   moduleId: module.id,
-  selector: 'my-dashboard',
-  templateUrl: 'dashboard.component.html',
-  styleUrls: ['dashboard.component.css']
+  selector: 'search',
+  templateUrl: 'search.component.html',
+  styleUrls: ['search.component.css']
 })
-export class DashboardComponent implements OnInit {
-  orderBy: string;
+export class SearchComponent implements OnInit {
+  category: string;
+  keyword: string;
+  currentPage: number;
+
   loading: boolean;
   totalCount: number;
-  currentPage: number;
   totalPages: number;
   comics: Comic[];
 
@@ -42,9 +49,10 @@ export class DashboardComponent implements OnInit {
       .switchMap((params: Params) => {
         this.loading = true;
 
-        this.orderBy = params['orderBy'];
+        this.category = params['category'];
+        this.keyword = params['keyword'];
         this.currentPage = params['currentPage'];
-        return this.heroService.getComics(this.orderBy, this.currentPage);
+        return this.heroService.getComic(this.category, this.keyword, this.currentPage);
       })
       .subscribe(data => {
         this.totalCount = data.total;

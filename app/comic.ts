@@ -1,8 +1,9 @@
 /**
  * @Author: Max LIU
  * @Date: 2017/2/16
- * @Last_Modified by: Max LIU
- * @Last_Modified time: 2017/2/16
+ * @Last_Modified_by: Max LIU
+ * @Last_Modified_time: 2017/2/16
+ * @Description: The Comic class
  */
 
 export class Comic {

@@ -1,0 +1,62 @@
+<!--Side NAV (Sorting)-->
+<div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 main">
+  <!--Title-->
+  <h1 class="page-header" *ngIf="!loading">Search result of "<strong>{{ keyword }}</strong>" in <strong>{{ category }}</strong> subset</h1>
+  <h2 *ngIf="loading">Loading...</h2>
+
+  <!--Show Comics-->
+  <div class="list-group" [hidden]="loading">
+    <a *ngFor="let comic of comics" [href]="comic.url" target="_blank" class="list-group-item">
+      <span class="badge">${{comic.price}}</span>
+      <div class="media">
+        <div class="media-left">
+          <img class="media-object" [src]="comic.thumbnail.path + '.' +comic.thumbnail.extension" alt="{{comic.title}}" height="128 px">
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading">{{comic.title}}</h3>
+          <p>Published Date:&nbsp;&nbsp;&nbsp;<strong>{{comic.onsaleDate | date}}</strong></p>
+          <p>Page Count:&nbsp;&nbsp;&nbsp;<strong>{{comic.pageCount}}</strong></p>
+          <p>Series: <strong>{{ comic.series.name }}</strong></p>
+          <p>
+            <span *ngFor="let creator of comic.creators"><span>{{ creator.role | uppercase}}:</span>&nbsp;&nbsp;<strong>{{creator.name}}</strong>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          </p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!--Footer NAV-->
+  <div [hidden]="loading">
+    <p>Lists: {{totalCount}}, Page: {{currentPage}}/{{totalPages}}</p>
+    <nav aria-label="Page navigation" class="text-center">
+      <ul class="pagination">
+        <li [ngClass]="{disabled : currentPage <= 1}">
+          <a [routerLink]="['../', (currentPage * 1-1)]" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a [hidden]="(currentPage*1-2) < 1" [routerLink]="['../', (currentPage*1-2)]">{{ (currentPage*1-2) }}</a></li>
+        <li><a [hidden]="(currentPage*1-1) < 1" [routerLink]="['../', (currentPage*1-1)]">{{ (currentPage*1-1) }}</a></li>
+        <li><a [routerLink]="['../', (currentPage)]">{{ (currentPage)}}</a></li>
+        <li><a [hidden]="(currentPage*1+1) > totalPages" [routerLink]="['../', (currentPage*1+1)]">{{ (currentPage*1+1) }}</a></li>
+        <li><a [hidden]="(currentPage*1+2) > totalPages" [routerLink]="['../', (currentPage*1+2)]">{{ (currentPage*1+2) }}</a></li>
+        <li [ngClass]="{disabled : currentPage >= totalPages}">
+          <a [routerLink]="['../', (currentPage * 1+1)]" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!--Loading dot-->
+  <div class="spinner" [hidden]="!loading">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+
+  <p class="text-right">"Data provided by Marvel. © 2014 Marvel"</p>
+</div>
+
+
+

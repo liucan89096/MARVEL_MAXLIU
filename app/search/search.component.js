@@ -9,18 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by 70243 on 2016/12/22.
+ * @Author: Max LIU
+ * @Date: 2017/2/16
+ * @Last_Modified_by: Max LIU
+ * @Last_Modified_time: 2017/2/16
+ * @Description: The component of Search
  */
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var comics_service_1 = require("../comics.service");
-var DashboardComponent = (function () {
+require("rxjs/add/operator/switchMap");
+var SearchComponent = (function () {
     // heroes: Hero[];
-    function DashboardComponent(heroService, route) {
+    function SearchComponent(heroService, route) {
         this.heroService = heroService;
         this.route = route;
     }
-    DashboardComponent.prototype.ngOnInit = function () {
+    SearchComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.comics = [];
         // this.heroService.getComics('onsaleDate').then(data => {
@@ -30,9 +35,10 @@ var DashboardComponent = (function () {
         this.route.params
             .switchMap(function (params) {
             _this.loading = true;
-            _this.orderBy = params['orderBy'];
+            _this.category = params['category'];
+            _this.keyword = params['keyword'];
             _this.currentPage = params['currentPage'];
-            return _this.heroService.getComics(_this.orderBy, _this.currentPage);
+            return _this.heroService.getComic(_this.category, _this.keyword, _this.currentPage);
         })
             .subscribe(function (data) {
             _this.totalCount = data.total;
@@ -42,7 +48,7 @@ var DashboardComponent = (function () {
             _this.loading = false;
         });
     };
-    DashboardComponent.prototype.getInfo = function (data) {
+    SearchComponent.prototype.getInfo = function (data) {
         //Clear init Comics
         this.comics.length = 0;
         for (var i = 0; i < data.results.length; i++) {
@@ -69,17 +75,17 @@ var DashboardComponent = (function () {
             }
         }
     };
-    return DashboardComponent;
+    return SearchComponent;
 }());
-DashboardComponent = __decorate([
+SearchComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'my-dashboard',
-        templateUrl: 'dashboard.component.html',
-        styleUrls: ['dashboard.component.css']
+        selector: 'search',
+        templateUrl: 'search.component.html',
+        styleUrls: ['search.component.css']
     }),
     __metadata("design:paramtypes", [comics_service_1.ComicsService,
         router_1.ActivatedRoute])
-], DashboardComponent);
-exports.DashboardComponent = DashboardComponent;
-//# sourceMappingURL=dashboard.component.js.map
+], SearchComponent);
+exports.SearchComponent = SearchComponent;
+//# sourceMappingURL=search.component.js.map

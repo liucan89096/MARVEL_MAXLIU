@@ -9,16 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by 70243 on 2016/12/22.
+ * @Author: Max LIU
+ * @Date: 2017/2/16
+ * @Last_Modified_by: Max LIU
+ * @Last_Modified_time: 2017/2/16
+ * @Description: The module of routing
  */
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var dashboard_component_1 = require("./dashboard/dashboard.component");
-var hero_detail_component_1 = require("./hero-detail/hero-detail.component");
+var comics_component_1 = require("./comics/comics.component");
+var search_component_1 = require("./search/search.component");
 var routes = [
-    { path: '', redirectTo: '/orderBy/title/1', pathMatch: 'full' },
-    { path: 'orderBy/:orderBy/:currentPage', component: dashboard_component_1.DashboardComponent },
-    { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent }
+    { path: '', redirectTo: '/comics/orderBy/title/1', pathMatch: 'full' },
+    { path: 'comics/orderBy/:orderBy/:currentPage', component: comics_component_1.ComicsComponent },
+    { path: 'search/:category/:keyword/:currentPage', component: search_component_1.SearchComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
