@@ -1,5 +1,7 @@
 # MARVEL's Comics info Source
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nerdmax/MARVEL_MAXLIU.svg)](https://greenkeeper.io/)
+
 This repository holds the source code of Max LIU's answer for Premonition_IO's test. The whole project is built with angular2 and bootstrap framework.
 
 This is an interface that can display the comics' information by fetching data from MARVEL's API (http://developer.marvel.com).
